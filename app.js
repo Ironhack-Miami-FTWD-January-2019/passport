@@ -60,15 +60,20 @@ app.use(session({
   saveUninitialized: true
 }));
 
+
+
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
+  //console.log('serialize')
 });
 
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
     if (err) { return cb(err); }
     cb(null, user);
+    //console.log('unserialize')
   });
+
 });
 app.use(flash());
 passport.use(new LocalStrategy({
