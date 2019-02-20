@@ -22,7 +22,7 @@ const LocalStrategy = require("passport-local").Strategy;
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/authenticity')
+  .connect('mongodb://localhost/db')
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -55,7 +55,7 @@ app.use(require('node-sass-middleware')({
       
 // app.js
 app.use(session({
-  secret: "our-passport-local-strategy-app",
+  secret: "yadayadayada",
   resave: true,
   saveUninitialized: true
 }));
