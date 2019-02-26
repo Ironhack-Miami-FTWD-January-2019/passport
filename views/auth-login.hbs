@@ -1,11 +1,11 @@
 <form action="/login" method="POST">
   <div>
     <label for="username">Username:</label>
-    <input type="text" name="username">
+    <input type="text" value="mike" name="username">
   </div>
   <div>
     <label for="password">Password:</label>
-    <input type="password" name="password">
+    <input type="password" value="mike" name="password">
   </div>
   {{#if message}}
     <div class="error-message">{{ message }}</div>
@@ -14,3 +14,5 @@
     <input type="submit" value="Log In">
   </div>
 </form>
+
+<p>No account? <a href="/signup">Sign up</a></p>

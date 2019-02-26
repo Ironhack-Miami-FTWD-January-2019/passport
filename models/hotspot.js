@@ -10,6 +10,10 @@ const hotspotSchema = new Schema({
   visits: {
     type:Number,
     default:1
+  },
+  first: {
+    type: Boolean,
+    default: true
   }
 
 }, {

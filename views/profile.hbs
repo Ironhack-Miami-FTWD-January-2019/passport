@@ -1,13 +1,40 @@
-Profile page
+
+ <br>
 {{#if user}}
   <div>
-    {{user.username}}
-    <a href="/">Index</a>
+    <h4>{{user.username}}'s Profile Page</h4>
   </div>
 {{/if}}
 
+<br>
+
+<a href='create'>Create New Hotspot</a>
+
+<h1>YOUR HOTSPOTS:</h1>
+
+
+{{!-- {{hotspotsFromDb}} --}}
+
 {{#each hotspots}}
-  {{name}}
-  {{location}}
-  etc...
+  <div>
+    <h2>NAME: {{name}}</h2> <br>
+    <h2>LOCATION: {{location}}</h2> <br>
+    <h2>TYPE: {{kind}}</h2> <br>
+    <h2>GENRE: {{genre}}</h2> <br>
+    <h2># OF VISITS: {{visits}}</h2> <br>
+  </div>
+  
+  <form id="recheck" action="/recheck/{{_id}}" method="POST">
+    <button type="submit">Check in again!</button>
+  </form>
+  
+  <br>
+  
+  <form id="delete" action="/delete/{{_id}}" method="POST">
+    <button type="submit">Delete HotSpot</button>
+  </form>
+
+  {{!-- <a href="/recheck/{{_id}}">Check in again</a>
+  <a href="/delete/{{_id}}" method="POST">Delete this Hotspot</a> --}}
+
 {{/each}}
