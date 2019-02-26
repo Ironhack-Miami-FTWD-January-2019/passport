@@ -1,0 +1,12 @@
+{{#each hotspotsToHBS}}
+  <h1>HOTSPOT</h1>
+  <h2>NAME: {{this.name}}</h2> <br>
+  <h2>LOCATION: {{this.location}}</h2> <br>
+  <h2>TYPE: {{this.kind}}</h2> <br>
+  <h2>GENRE: {{this.genre}}</h2> <br>
+  <h2># OF VISITS: {{this.visits}}</h2> <br>
+{{/each}}
+
+
+  {{!-- <h1>You haven't checked in to any HotSpots!</h1>
+  <a href="/create">Create one here!</a> --}}
