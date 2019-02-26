@@ -1,0 +1,13 @@
+Profile page
+{{#if user}}
+  <div>
+    {{user.username}}
+    <a href="/">Index</a>
+  </div>
+{{/if}}
+
+{{#each hotspots}}
+  {{name}}
+  {{location}}
+  etc...
+{{/each}}

@@ -44,7 +44,7 @@ authRoutes.post("/signup", (req, res, next) => {
         res.render("auth-signup", { message: "Something went wrong" });
       } else {
         passport.authenticate('local')(req, res, function () {
-          res.redirect('/private-page');
+          res.redirect('/profile');
         })
       }
     });
@@ -60,7 +60,7 @@ authRoutes.get("/login", (req, res, next) => {
   res.render("auth-login", { "message": req.flash("error") });
 });
 authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true

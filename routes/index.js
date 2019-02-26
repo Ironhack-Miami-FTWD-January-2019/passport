@@ -13,13 +13,16 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.get('/create', (req, res, next)=>{
+router.get('/create', isLoggedIn, (req, res, next)=>{
   res.render('create');
 })
 
-router.post('/createNewHotSpot', (req, res, next)=>{
-  console.log('createNewHotSpot',req.body)
-  Hotspot.create(req.body).then(stuffFromDb=>{
+router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
+  let saveStuff = req.body;
+  saveStuff.userId = req.user._id
+  console.log('createNewHotSpot',req.body, ' nbut out user is', req.user)
+
+  Hotspot.create(saveStuff).then(stuffFromDb=>{
     res.redirect('view-hotspots')
   })
   //res.render('create');
@@ -31,5 +34,21 @@ router.get('/view-hotspots', (req, res, next) => {
     res.render('view-hotspots', {thisGoesToHBS:'soyou  can see this', hotspotsToHBS:hotspotsFromDb});
   })
 });
+
+
+
+function isLoggedIn(req, res, next) { //CHecks if user is logged in -middleware
+  if (req.isAuthenticated())
+      return next();
+
+  res.redirect('/login');
+}
+
+router.get('/profile', isLoggedIn, (req, res, next)=>{
+  Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
+    res.render('profile', {hotspots:hotspotsFromDb});
+  })
+
+})
 
 module.exports = router;
