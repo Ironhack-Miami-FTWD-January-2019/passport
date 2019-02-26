@@ -20,10 +20,10 @@ router.get('/create', isLoggedIn, (req, res, next)=>{
 router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   let saveStuff = req.body;
   saveStuff.userId = req.user._id
-  console.log('createNewHotSpot',req.body, ' nbut out user is', req.user)
-  // if (saveStuff.name !== null){
-  //   saveStuff.first = false;
-  // }
+
+  if (saveStuff.name !== null){
+    saveStuff.first = false;
+  }
   Hotspot.create(saveStuff).then(stuffFromDb=>{
     res.redirect('profile')
   })

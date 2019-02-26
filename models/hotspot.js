@@ -12,8 +12,12 @@ const hotspotSchema = new Schema({
     default:1
   },
   first: {
+    type:Boolean,
+    default:true
+  },
+  coolspot: {
     type: Boolean,
-    default: true
+    default: false
   }
 
 }, {
