@@ -9,23 +9,45 @@ router.get('/', (req, res, next) => {
 router.get('/dashboard', isLoggedIn, (req, res, next) => {
   Comment.find().populate('userId').then(commentsFromDatabase=>{
     commentsFromDatabase.forEach(comment=>{
-      console.log('121',comment.userId._id, req.user._id)
+      //console.log('121',comment.userId._id, req.user._id)
       if(String(comment.userId._id) === String(req.user._id)){
         comment.yours = true; 
       }
     })
-    console.log(commentsFromDatabase)
+    //console.log(commentsFromDatabase)
     res.render('dashboard.hbs', {commentstoHBS:commentsFromDatabase});
   })
 });
 
 router.post('/tradeIdea/add', isLoggedIn, (req, res, next) => {
-  console.log(req.body)
+  //console.log(req.body)
   let stuffSaid = req.body.comment;
   let comment = new Comment({ comment:stuffSaid, userId:req.user._id})
   comment.save(()=>{ //wait until done saving before redirect
     res.redirect('../dashboard')
   });
+});
+
+router.get('/edit/:id', isLoggedIn, (req, res, next) => {
+  //Model.find({}) will return an array even if there's one []
+  //Model.findOne({email:req.params.email}) will allways return one
+  //Model.findById(req.params.id) will allways return one
+  Comment.findOne({_id:req.params.id}).then(comment=>{
+    //console.log('haha ',comment)
+    res.render('comment-edit', {comment})
+  }).catch(err=> console.error(err))
+});
+
+
+router.post('/edit/:id', isLoggedIn, (req, res, next) => {
+  console.log('now save this to the db',req.params, req.body)
+  Comment.findOne({_id:req.params.id}).then(comment => {
+    comment.comment = req.body.comment
+    comment.save(() => 
+    {
+      res.redirect('../dashboard')
+    });
+  })
 });
 
 router.post('/delete/:idComingFromTheDeleteForm', isLoggedIn, (req, res, next) => {

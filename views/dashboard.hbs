@@ -37,6 +37,12 @@ Dashboard
       <p>{{comment}}</p>
       <p><b>posted by:</b><i>{{userId.username}}</i></p>
       {{#if yours}}
+      <a href="/edit/{{_id}}">
+        <button>Edit</button>
+      </a>
+      {{/if}}
+      
+      {{#if yours}}
       <form action="delete/{{_id}}" method="post">
         <button>Delete</button>
       </form>
