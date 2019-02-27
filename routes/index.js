@@ -19,23 +19,21 @@ router.get('/create', isLoggedIn, (req, res, next)=>{
 
 router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   let saveStuff = req.body;
+  const username = req.body.username;
   saveStuff.userId = req.user._id
 
-  if (saveStuff.name !== null){
-    saveStuff.first = false;
-  }
-  Hotspot.create(saveStuff).then(stuffFromDb=>{
-    res.redirect('profile')
-  })
+  User.findOne({ "username": username })
+  .then(user => {
+    if (user !== null) {
+        saveStuff.first = false;
+      }
+    Hotspot.create(saveStuff).then(stuffFromDb=>{
+      res.redirect('profile')
+    })
   //res.render('create');
-})
+  })
+});
 
-// router.get('/view-hotspots', (req, res, next) => {
-//   console.log('hi')
-//   Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
-//     res.render('view-hotspots', {hotspotsToHBS:hotspotsFromDb});
-//   })
-// });
 
 router.get('/view-hotspots', (req, res, next) => {
   console.log('hi')
@@ -87,14 +85,33 @@ router.post('/recheck/:id', isLoggedIn, (req, res, next) => {
   });
 })
 
-//   Hotspot.findByIdAndUpdate(
-//     {_id: req.params.visits},
-//     {$inc: { visits: 1 } })
-//   .then(hotspotsFromDb => {
-//     res.redirect('/profile');
+
+//SEARCH FOR USER
+router.post('/findName', isLoggedIn, (req, res, next) => {
+  User.findOne({username:req.body.username})
+  .then(user=>{
+    Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
+      res.render('find', {user:user, hotspots:hotspotsFromDb})
+    })
+    .catch(error => {
+      console.log('Error => ', error);
+      });
+  })
+})
+
+// router.get('/find', isLoggedIn, (req, res, next) => {
+//   console.log("GET")
+//   Hotspot.findById(req.params.id)
+//   .then(hotspotsByUser => {
+//     res.render('find');
+//     console.log(user, hotspots)
 //   })
-//   .catsh(error => {
+//   .catch(error => {
 //     console.log('Error => ', error);
-//   });
-// })
+//     });
+// });
+
 module.exports = router;
+
+// status code: /find
+//     at ServerResponse.writeHead (_http_server.js:209:11)

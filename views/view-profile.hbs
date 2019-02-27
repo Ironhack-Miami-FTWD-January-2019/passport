@@ -1,20 +1,20 @@
-<h1>ALL HOTSPOTS</h1>
+<h1>{{user}}'s' HOTSPOTS</h1>
 
 {{#each hotspotsToHBS}}
   {{!-- {{#if this.first}} --}}
-    {{#unless this.coolspot}}
+
       <div>
         <h3>NAME: {{this.name}}</h3> <br>
         <h4>Location: {{this.location}}</h4> <br>
         <h4>Type: {{this.kind}}</h4> <br>
         <h4>Genre: {{this.genre}}</h4> <br>
+        <h2># OF VISITS: {{this.visits}}</h2> <br>
       </div>
-    {{/unless}}
+
   {{!-- {{/if}} --}}
 {{/each}}
 
 
-  {{!-- <h1>You haven't checked in to any HotSpots!</h1>
-  <a href="/create">Create one here!</a> --}}
+<a href="/profile">Go Back</a>
 
 

@@ -6,7 +6,7 @@ const hotspotSchema = new Schema({
   location: String,
   kind:String,
   genre:String,
-  userId: {type:Schema.Types.ObjectId, ref:'User'},
+  // userId: {type:Schema.Types.ObjectId, ref:'User'},
   visits: {
     type:Number,
     default:1

@@ -115,6 +115,7 @@ app.use('/', authRoutes);
 const index = require('./routes/index');
 app.use('/', index);
 
+//FIND USER
 
 module.exports = app;
 

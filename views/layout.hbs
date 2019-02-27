@@ -13,16 +13,25 @@
     <a href="/">Home</a>
     <a href="/profile">Profile</a>
     <a href="/view-hotspots">All HotSpots</a>
-    <a href="/logout">LogOut</a>
-    <a href="/login">Login</a>
-    <a href="/signup">Signup</a>
-    <form action="/find" method="POST">
-  <label for="username">Search for username</label>
-  <input type="text" placeholder="search..." name="username">
+    {{#if user}}
+     <a href="/logout">LogOut</a>
+    {{/if}}
+    {{#unless user}}
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    {{/unless}}
+    
+  
+  <form  id="findName" action="/findName" method="POST">
+    <label for="username">Search for username</label>
+    <input type="text" placeholder="search..." name="username">
+    <button type="submit">Go!</button>
+  </form>
 </form>
   </nav>
 
   {{{body}}}
+ 
 
   <script src="/javascripts/script.js"></script>
 </body>

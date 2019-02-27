@@ -1,1 +1,7 @@
 <h1>Welcome to HotSpot!</h1>
+
+  {{#unless user}}
+      <h3><a href="/login">Login</a></h3><br>
+      <h4>or</h4><br>
+      <h3><a href="/signup">Create an account</a></h3>
+    {{/unless}}
