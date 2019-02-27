@@ -7,18 +7,30 @@ Dashboard
 </h1> --}}
 
 <h1> {{title}} 
-    <h2 class="">Currency Pair</h2>
+    <h2>Currency Pair</h2>
       <label for="currencyPair">
-      <input type="date" id="startDate" value="2019-01-01">
+      <select>
+        <option class="fromPair" type="AUD">AUD</option>
+        <option class="fromPair" type="CAD">CAD</option>
+        <option class="fromPair" type="EUR">EUR</option>
+        <option class="fromPair" type="GBP">GBP</option>
+        <option class="fromPair" type="JPY">JPY</option>
+        <option class="fromPair" type="NZD">NZD</option>
+        <option class="fromPair" type="USD">USD</option>
+        <option class="fromPair" type="XAU">XAU</option>
+      </select>
+      <select>
+        <option class="toPair" type="AUD">AUD</option>
+        <option class="toPair" type="CAD">CAD</option>
+        <option class="toPair" type="EUR">EUR</option>
+        <option class="toPair" type="GBP">GBP</option>
+        <option class="toPair" type="JPY">JPY</option>
+        <option class="toPair" type="NZD">NZD</option>
+        <option class="toPair" type="USD">USD</option>
+        <option class="toPair" type="XAU">XAU</option>
+      </select>
       </label>
 
-      <label for="start">To:
-      <input type="date" id="endDate" value="2019-02-18">
-      </label>
-      <select>
-        <option class="USD" type="USD">USD</option>
-        <option class="EUR" type="EUR">EUR</option>
-      </select>
     <canvas id="myChart" width="300" height="150"></canvas>
     <a href="/private-page">Profile</a>
   </h1>

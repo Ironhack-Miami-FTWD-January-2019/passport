@@ -9,10 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateChart(e)
   {
-      let startDate = document.getElementById("startDate").value;
-      let endDate = document.getElementById("endDate").value;
-      let currency = document.getElementsByTagName('select').value;
-      let url = `${baseURL}?start=${startDate}&end=${endDate}`;
+      let fromPair = document.getElementById("fromPair").value;
+      let toPair = document.getElementById("toPair").value;
+      let url = `${baseURL}?start=${fromPair}&end=${toPair}`;
       //?currency=<VALUE>
       
       axios.get(url)
