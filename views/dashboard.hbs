@@ -9,26 +9,36 @@ Dashboard
 <h1> {{title}} 
     <h2>Currency Pair</h2>
       <label for="currencyPair">
-      <select>
-        <option class="fromPair" type="AUD">AUD</option>
-        <option class="fromPair" type="CAD">CAD</option>
-        <option class="fromPair" type="EUR">EUR</option>
-        <option class="fromPair" type="GBP">GBP</option>
-        <option class="fromPair" type="JPY">JPY</option>
-        <option class="fromPair" type="NZD">NZD</option>
-        <option class="fromPair" type="USD">USD</option>
-        <option class="fromPair" type="XAU">XAU</option>
-      </select>
-      <select>
-        <option class="toPair" type="AUD">AUD</option>
-        <option class="toPair" type="CAD">CAD</option>
-        <option class="toPair" type="EUR">EUR</option>
-        <option class="toPair" type="GBP">GBP</option>
-        <option class="toPair" type="JPY">JPY</option>
-        <option class="toPair" type="NZD">NZD</option>
-        <option class="toPair" type="USD">USD</option>
-        <option class="toPair" type="XAU">XAU</option>
-      </select>
+        <select>
+          <option class="fromPair" type="AUD">AUD</option>
+          <option class="fromPair" type="CAD">CAD</option>
+          <option class="fromPair" type="EUR">EUR</option>
+          <option class="fromPair" type="GBP">GBP</option>
+          <option class="fromPair" type="JPY">JPY</option>
+          <option class="fromPair" type="NZD">NZD</option>
+          <option class="fromPair" type="USD">USD</option>
+          <option class="fromPair" type="XAU">XAU</option>
+        </select>
+        <select>
+          <option class="toPair" type="AUD">AUD</option>
+          <option class="toPair" type="CAD">CAD</option>
+          <option class="toPair" type="EUR">EUR</option>
+          <option class="toPair" type="GBP">GBP</option>
+          <option class="toPair" type="JPY">JPY</option>
+          <option class="toPair" type="NZD">NZD</option>
+          <option class="toPair" type="USD">USD</option>
+          <option class="toPair" type="XAU">XAU</option>
+        </select>
+      </label>
+
+    <h2>Time Frame</h2>
+      <label for="timeFrame">
+        <select>
+          <option class="interval" type="1min">1min</option>
+          <option class="interval" type="5min">5min</option>
+          <option class="interval" type="15min">15min</option>
+          <option class="interval" type="30min">30min</option>
+          <option class="interval" type="60min">60min</option>
       </label>
 
     <canvas id="myChart" width="300" height="150"></canvas>
