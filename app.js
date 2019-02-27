@@ -20,6 +20,11 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 // app.js
 // Mongoose configuration
+
+hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/db')

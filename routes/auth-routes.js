@@ -3,9 +3,11 @@ const authRoutes = express.Router();
 const passport = require("passport");
 const flash = require("connect-flash");
 const ensureLogin = require("connect-ensure-login");
+//const router  = express.Router();
 
 // User model
 const User = require("../models/user");
+const Comment = require("../models/comments");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -74,11 +76,13 @@ authRoutes.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
       return next();
 
   res.redirect('/login');
 }
+
+
+
 module.exports = authRoutes;
