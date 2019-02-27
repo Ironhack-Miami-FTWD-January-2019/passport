@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
   myChart.title = "The Big Cheese";
   myChart.theme.titleFontSize = 16;
-  updateChart();
 
   function updateChart()
   {
@@ -70,13 +69,12 @@ document.addEventListener('DOMContentLoaded', () =>
         myChart.series = data;
         myChart.draw();
 
-
       })
   }
       
-  document.getElementById('startDate').addEventListener("change", updateChart);
-  document.getElementById('endDate').addEventListener("change", updateChart);
-  //document.getElementsByTagName('select').addEventListener("change", updateChart);
+//   document.getElementById('startDate').addEventListener("change", updateChart);
+//   document.getElementById('endDate').addEventListener("change", updateChart);
+//   document.getElementsByTagName('select').addEventListener("change", updateChart);
   
 
   updateChart()
