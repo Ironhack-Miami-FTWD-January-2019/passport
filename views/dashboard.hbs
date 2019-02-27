@@ -1,17 +1,25 @@
 Dashboard
-<h1> {{title}} 
-      <h2 class="Filters">Filters</h2>
-        <label for="start">From:
-        <input type="date" id="startDate" value="2019-01-01">
-        </label>
+{{!-- <h1>
+  <div style="position: absolute; top: 10px;">
+    <canvas id="forexChart" width="1000px" height="800px"></canvas>
+  </div>
 
-        <label for="start">To:
-        <input type="date" id="endDate" value="2019-02-18">
-        </label>
-        <select>
-          <option class="USD" type="USD">USD</option>
-          <option class="EUR" type="EUR">EUR</option>
-        </select>
+</h1> --}}
+
+<h1> {{title}} 
+    <h2 class="">Currency Pair</h2>
+      <label for="currencyPair">
+      <input type="date" id="startDate" value="2019-01-01">
+      </label>
+
+      <label for="start">To:
+      <input type="date" id="endDate" value="2019-02-18">
+      </label>
+      <select>
+        <option class="USD" type="USD">USD</option>
+        <option class="EUR" type="EUR">EUR</option>
+      </select>
     <canvas id="myChart" width="300" height="150"></canvas>
+    <a href="/private-page">Profile</a>
   </h1>
   <script src="/javascripts/financial-chart.js"></script>

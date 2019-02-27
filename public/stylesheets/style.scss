@@ -1,3 +1,4 @@
+//index.hbs
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -5,8 +6,49 @@ body {
 #intro{
   background-image: url("../images/Forex-background.jpg");
   min-height: 100vh;
+  color: black;
+  font-family: 'Paytone One', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1{
+  color: white;
 }
+
+//buttons
+.login { 
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  //margin-top: 50px;
+}
+
+.signup { 
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+}
+
+.main {
+  background-color: white;
+  text-align: center;
+  width: 35%;
+  height: 300px;
+  margin-left: 30%;
+  position: absolute;
+  top: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 10px #4e4d4d;
+}
+
+.main a {
+  color: white;
+}
+
+.message {
+  // margin-top: 50px;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//login.hbs
+

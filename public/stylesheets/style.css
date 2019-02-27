@@ -3,9 +3,35 @@ body {
 
 #intro {
   background-image: url("../images/Forex-background.jpg");
-  min-height: 100vh; }
+  min-height: 100vh;
+  color: black;
+  font-family: 'Paytone One', sans-serif; }
 
-a {
-  color: #00B7FF; }
+h1 {
+  color: white; }
+
+.login {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px; }
+
+.signup {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px; }
+
+.main {
+  background-color: white;
+  text-align: center;
+  width: 35%;
+  height: 300px;
+  margin-left: 30%;
+  position: absolute;
+  top: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 10px #4e4d4d; }
+
+.main a {
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
