@@ -12,6 +12,9 @@ const flash = require("connect-flash");
 const User = require('./models/user')
 const ensureLogin = require("connect-ensure-login");
 
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
 
 // app.js
 const session = require("express-session");
@@ -22,7 +25,7 @@ const LocalStrategy = require("passport-local").Strategy;
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/db')
+  .connect(process.env.DATABASE)
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -115,7 +118,9 @@ app.use('/', authRoutes);
 const index = require('./routes/index');
 app.use('/', index);
 
-//FIND USER
+
+
+
 
 module.exports = app;
 

@@ -27,19 +27,19 @@ geocoder.geocode('83 SW 8th St, Miami, FL 33130', function(err, res) {
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {user: req.user});
 });
 
 
 router.get('/create', isLoggedIn, (req, res, next)=>{
-  res.render('create');
+  res.render('create', {user: req.user});
 })
 
 router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   let saveStuff = req.body;
   const username = req.body.username;
   saveStuff.userId = req.user._id
-  geocoder.geocode("97 SW 8th St, Miami, FL 33130", function(err, response) {
+  geocoder.geocode(saveStuff.location, function(err, response) {
     console.log(res);
   
     User.findOne({ "username": username })
@@ -68,7 +68,7 @@ router.get('/profile', isLoggedIn, (req, res, next)=>{
 router.get('/view-hotspots', (req, res, next) => {
   console.log('hi')
   Hotspot.find().then(hotspotsFromDb=>{
-    res.render('view-hotspots', {hotspotsToHBS:hotspotsFromDb});
+    res.render('view-hotspots', {hotspotsToHBS:hotspotsFromDb, user: req.user});
   })
 });
 
@@ -123,6 +123,14 @@ router.post('/findName', isLoggedIn, (req, res, next) => {
       });
   })
 })
+
+//MAP
+
+router.get('/map', (req, res, next) => {
+  console.log('hi')
+
+    res.render('map');
+});
 
 
 
