@@ -5,6 +5,24 @@ const User = require("../models/user");
 // Hotspot model
 const Hotspot = require("../models/hotspot");
 
+var NodeGeocoder = require('node-geocoder');
+ 
+var options = {
+  provider: 'google',
+ 
+  // Optional depending on the providers
+  httpAdapter: 'https', // Default
+  apiKey: 'AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU', // for Mapquest, OpenCage, Google Premier
+  formatter: null         // 'gpx', 'string', ...
+};
+ 
+var geocoder = NodeGeocoder(options);
+ 
+// Using callback
+geocoder.geocode('83 SW 8th St, Miami, FL 33130', function(err, res) {
+  console.log(res);
+});
+ 
 
 
 /* GET home page */
@@ -21,18 +39,30 @@ router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   let saveStuff = req.body;
   const username = req.body.username;
   saveStuff.userId = req.user._id
-
-  User.findOne({ "username": username })
-  .then(user => {
-    if (user !== null) {
-        saveStuff.first = false;
-      }
-    Hotspot.create(saveStuff).then(stuffFromDb=>{
-      res.redirect('profile')
+  geocoder.geocode("97 SW 8th St, Miami, FL 33130", function(err, response) {
+    console.log(res);
+  
+    User.findOne({ "username": username })
+    .then(user => {
+      // if (user !== null) {
+      //   saveStuff.first = false;
+      // }
+      saveStuff.lat=response[0].latitude;
+      saveStuff.lon=response[0].longitude;
+      saveStuff.city=response[0].city;
+      Hotspot.create(saveStuff).then(stuffFromDb=>{
+        res.redirect('profile')
+      })
     })
-  //res.render('create');
-  })
+  });
 });
+
+router.get('/profile', isLoggedIn, (req, res, next)=>{
+  Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
+    console.log()
+    res.render('profile', {hotspots:hotspotsFromDb, user: req.user});
+  })
+})
 
 
 router.get('/view-hotspots', (req, res, next) => {
@@ -51,12 +81,7 @@ function isLoggedIn(req, res, next) { //Checks if user is logged in -middleware
   res.redirect('/login');
 }
 
-router.get('/profile', isLoggedIn, (req, res, next)=>{
-  Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
-    res.render('profile', {hotspots:hotspotsFromDb, user: req.user});
-  })
 
-})
 
 //DELETE HOTSPOT
 router.post('/delete/:id', isLoggedIn, (req, res, next) =>{
@@ -99,17 +124,7 @@ router.post('/findName', isLoggedIn, (req, res, next) => {
   })
 })
 
-// router.get('/find', isLoggedIn, (req, res, next) => {
-//   console.log("GET")
-//   Hotspot.findById(req.params.id)
-//   .then(hotspotsByUser => {
-//     res.render('find');
-//     console.log(user, hotspots)
-//   })
-//   .catch(error => {
-//     console.log('Error => ', error);
-//     });
-// });
+
 
 module.exports = router;
 
