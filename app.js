@@ -12,6 +12,8 @@ const flash = require("connect-flash");
 const User = require('./models/user')
 const ensureLogin = require("connect-ensure-login");
 
+const DBPASS = process.env.DBPASS;
+
 hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
@@ -25,7 +27,7 @@ const LocalStrategy = require("passport-local").Strategy;
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect(`mongodb+srv://Mike:${process.env.DBPASS}@cluster0-icuim.mongodb.net/test?retryWrites=true`)
+  .connect(`mongodb+srv://Mike:${DBPASS}@cluster0-icuim.mongodb.net/test?retryWrites=true`)
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
