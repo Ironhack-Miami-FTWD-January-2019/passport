@@ -6,6 +6,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   description: String,
+  favorites: Array,
 }, 
 {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

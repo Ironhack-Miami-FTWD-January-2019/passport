@@ -4,7 +4,8 @@ const Schema   = mongoose.Schema;
 const commentSchema = new Schema({
   comment: String,
   userId: {type: Schema.Types.ObjectId, ref: "User"},
-  yours: Boolean
+  yours: Boolean,
+  date: Number,
 //user: String
   // timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

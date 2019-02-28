@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //Demo link from alpha vantage : https://www.alphavantage.co/query?function=FX_INTRADAY&from_symbol=EUR&to_symbol=USD&interval=5min&apikey=demo
   //API Key: J32AHKQGTWBB4KXL
 
+
+
   function updateChart(e)
   {
       let startDate = document.getElementById("startDate").value;

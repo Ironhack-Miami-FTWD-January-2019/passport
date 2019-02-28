@@ -27,7 +27,7 @@ hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/db')
+  .connect(process.env.DATABASE)
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
