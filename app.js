@@ -27,7 +27,7 @@ hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
 
 mongoose.Promise = Promise;
 mongoose
-  .connect(process.env.DATABASE)
+  .connect(`mongodb+srv://manny:${process.env.DBPASS}@pipchat-2gr2y.mongodb.net/test?retryWrites=true`)
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
