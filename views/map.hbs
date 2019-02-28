@@ -1,57 +1,60 @@
-<h1>My Google Map</h1>
-    <div id="map"></div>
-    <script>
-      function initMap(){
-        // Map Options
-        var options = {
-          zoom:8,
-          center: {lat:42.4668, lng: -70.9495}
-        }
-        // New Map
-        var map = new 
-        google.maps.Map(document.getElementById('map'), options);
+<h1>My HotSpots</h1>
 
-        //listen for click on map
-        google.maps.event.addListener(map, 'click',
-        function(event){
-          addMarker({coords:event.latLng});
-        })
 
-        //ARRAY
-        var markers = [
-          {coords:{lat:42.4668, lng: -70.9495},
-          content:'<h1>Lynn Mass<h1>'
-          },
-          {coords:{lat:42.8584, lng: -70.9300},
-          content:"YEET"
-          },
-          {coords:{lat:42.7762, lng: -71.0773},
-          content:"<h2>?!?!?!?!?</h2>"
-          }
-        ];
+<div id="map"></div>
 
-        for(var i=0; i<markers.length; i++){
-          addMarker(markers[i]);
-        }
+<script>
+  function initMap(){
+    // Map Options
+    var options = {
+      zoom:16,
+      center: {lat:25.7661932, lng: -80.19618059999999}
+    }
+    // New Map
+    var map = new 
+    google.maps.Map(document.getElementById('map'), options);
 
-        //Add Marker function
-          function addMarker(props){
-            var marker = new google.maps.Marker({
-            position: props.coords,
-            map:map,
-          });
-          //check content
-          if(props.content){
-            var infoWindow = new google.maps.InfoWindow({
-          content: props.content
-        });
-        marker.addListener('click', function(){
-          infoWindow.open(map, marker);
-        });
-          }
-        }
+    //listen for click on map
+    google.maps.event.addListener(map, 'click',
+    function(event){
+      addMarker({coords:event.latLng});
+    })
+
+    //ARRAY
+    var markers = [
+      {coords:{lat:42.4668, lng: -70.9495},
+      content:'<h1>Lynn Mass<h1>'
+      },
+      {coords:{lat:42.8584, lng: -70.9300},
+      content:"YEET"
+      },
+      {coords:{lat:42.7762, lng: -71.0773},
+      content:"<h2>?!?!?!?!?</h2>"
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
-    </script>
+    ];
+
+    for(var i=0; i<markers.length; i++){
+      addMarker(markers[i]);
+    }
+
+    //Add Marker function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+        position: props.coords,
+        map:map,
+      });
+      //check content
+      if(props.content){
+        var infoWindow = new google.maps.InfoWindow({
+      content: props.content
+    });
+    marker.addListener('click', function(){
+      infoWindow.open(map, marker);
+    });
+      }
+    }
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
+</script>
