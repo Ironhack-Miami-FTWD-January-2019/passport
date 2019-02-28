@@ -127,10 +127,12 @@ router.get('/map', isLoggedIn, (req, res, next) => {
 
 //SEARCH FOR USER
 router.post('/findName', isLoggedIn, (req, res, next) => {
-  User.findOne({username:req.body.username})
-  .then(user=>{
-    Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
-      res.render('find', {hotspots:hotspotsFromDb, user:req.user.username})
+  console.log(req.body, 1234567890)
+  User.findOne({username:req.body.username}).then(user=>{
+    console.log('found this user',user)
+    Hotspot.find({userId:user._id}).then(hotspotsFromDb=>{
+      console.log(user, hotspotsFromDb)
+      res.render('find', {user:user, hotspots:hotspotsFromDb})
     })
     .catch(error => {
       console.log('Error => ', error);
