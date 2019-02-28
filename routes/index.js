@@ -4,7 +4,7 @@ const router  = express.Router();
 const User = require("../models/user");
 // Hotspot model
 const Hotspot = require("../models/hotspot");
-
+var HS = [];
 var NodeGeocoder = require('node-geocoder');
  
 var options = {
@@ -57,6 +57,9 @@ router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   });
 });
 
+
+//VIEW PROFILE PAGE
+
 router.get('/profile', isLoggedIn, (req, res, next)=>{
   Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
     console.log()
@@ -68,7 +71,7 @@ router.get('/profile', isLoggedIn, (req, res, next)=>{
 router.get('/view-hotspots', (req, res, next) => {
   console.log('hi')
   Hotspot.find().then(hotspotsFromDb=>{
-    res.render('view-hotspots', {hotspotsToHBS:hotspotsFromDb, user: req.user});
+    res.render('view-hotspots', {hotspots:hotspotsFromDb, user: req.user});
   })
 });
 
@@ -110,13 +113,24 @@ router.post('/recheck/:id', isLoggedIn, (req, res, next) => {
   });
 })
 
+//MAP
+
+router.get('/map', isLoggedIn, (req, res, next) => {
+  Hotspot.find({userId:req.user._id})
+    .then(hotspotsFromDb=>{
+    HS.push(hotspotsFromDb);
+    console.log(HS)
+    res.render('map', {hotspots:hotspotsFromDb, user: req.user.username});
+  })
+});
+
 
 //SEARCH FOR USER
 router.post('/findName', isLoggedIn, (req, res, next) => {
   User.findOne({username:req.body.username})
   .then(user=>{
     Hotspot.find({userId:req.user._id}).then(hotspotsFromDb=>{
-      res.render('find', {user:user, hotspots:hotspotsFromDb})
+      res.render('find', {hotspots:hotspotsFromDb, user:req.user.username})
     })
     .catch(error => {
       console.log('Error => ', error);
@@ -124,13 +138,6 @@ router.post('/findName', isLoggedIn, (req, res, next) => {
   })
 })
 
-//MAP
-
-router.get('/map', (req, res, next) => {
-  console.log('hi')
-
-    res.render('map');
-});
 
 
 

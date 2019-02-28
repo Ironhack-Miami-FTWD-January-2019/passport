@@ -1,8 +1,7 @@
-<h1>My HotSpots</h1>
-
+<h1>{{user}}'s HotSpots</h1>
 
 <div id="map"></div>
-
+{{data}}
 <script>
   function initMap(){
     // Map Options
@@ -20,18 +19,9 @@
       addMarker({coords:event.latLng});
     })
 
-    //ARRAY
-    var markers = [
-      {coords:{lat:42.4668, lng: -70.9495},
-      content:'<h1>Lynn Mass<h1>'
-      },
-      {coords:{lat:42.8584, lng: -70.9300},
-      content:"YEET"
-      },
-      {coords:{lat:42.7762, lng: -71.0773},
-      content:"<h2>?!?!?!?!?</h2>"
-      }
-    ];
+    //var currentUser = JSON.parse('{{{json user}}}');
+    let markers = JSON.parse('{{{json hotspots}}}')
+    console.log(markers)
 
     for(var i=0; i<markers.length; i++){
       addMarker(markers[i]);
@@ -39,14 +29,15 @@
 
     //Add Marker function
       function addMarker(props){
+        console.log(props)
         var marker = new google.maps.Marker({
-        position: props.coords,
+        position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
         map:map,
       });
       //check content
-      if(props.content){
+      if(props.name){
         var infoWindow = new google.maps.InfoWindow({
-      content: props.content
+      content: props.name
     });
     marker.addListener('click', function(){
       infoWindow.open(map, marker);

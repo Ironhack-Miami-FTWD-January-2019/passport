@@ -1,9 +1,60 @@
 <h1>{{user}}'s' HOTSPOTS</h1>
 
-{{#each hotspotsToHBS}}
+<div id="map"></div>
+{{data}}
+<script>
+  function initMap(){
+    // Map Options
+    var options = {
+      zoom:16,
+      center: {lat:25.7661932, lng: -80.19618059999999}
+    }
+    // New Map
+    var map = new 
+    google.maps.Map(document.getElementById('map'), options);
+
+    //listen for click on map
+    google.maps.event.addListener(map, 'click',
+    function(event){
+      addMarker({coords:event.latLng});
+    })
+
+    //var currentUser = JSON.parse('{{{json user}}}');
+    let markers = JSON.parse('{{{json hotspots}}}')
+    console.log(markers)
+
+    for(var i=0; i<markers.length; i++){
+      addMarker(markers[i]);
+    }
+
+    //Add Marker function
+      function addMarker(props){
+        console.log(props)
+        var marker = new google.maps.Marker({
+        position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
+        map:map,
+      });
+      //check content
+      if(props.name){
+        var infoWindow = new google.maps.InfoWindow({
+      content: props.name
+    });
+    marker.addListener('click', function(){
+      infoWindow.open(map, marker);
+    });
+      }
+    }
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
+</script>
+
+
+{{!-- {{#each hotspotsToHBS}}
   {{!-- {{#if this.first}} --}}
 
-      <div>
+      {{!-- <div>
         <h3>NAME: {{this.name}}</h3> <br>
         <h4>Location: {{this.location}}</h4> <br>
         <h4>Type: {{this.kind}}</h4> <br>
@@ -12,7 +63,7 @@
       </div>
 
   {{!-- {{/if}} --}}
-{{/each}}
+{{!-- {{/each}} --}} 
 
 
 <a href="/profile">Go Back</a>
