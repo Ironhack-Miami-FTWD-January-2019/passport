@@ -25,7 +25,7 @@ const LocalStrategy = require("passport-local").Strategy;
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect(process.env.DATABASE)
+  .connect(`mongodb+srv://Mike:${process.env.DBPASS}@cluster0-icuim.mongodb.net/test?retryWrites=true`)
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
