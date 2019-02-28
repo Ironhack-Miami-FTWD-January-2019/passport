@@ -2,20 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('IronGenerator JS imported successfully!');
 
-  const baseURL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
+  const baseURL = 'https://www.alphavantage.co/query'
   //Demo link from chart.js lab: https://api.coindesk.com/v1/bpi/historical/close.json
-  //Demo link from alpha vantage : https://www.alphavantage.co/query?function=FX_INTRADAY&from_symbol=EUR&to_symbol=USD&interval=5min&apikey=demo
-  //API Key: J32AHKQGTWBB4KXL
-
-
-
+ 
   function updateChart(e)
   {
-      let startDate = document.getElementById("startDate").value;
-      let endDate = document.getElementById("endDate").value;
-      let currency = document.getElementsByTagName('select').value;
-      let url = `${baseURL}?start=${startDate}&end=${endDate}`;
-      //?currency=<VALUE>
+      let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${apikey}`;
+  
+      var times = []
       
       axios.get(url)
       .then((res) =>{
@@ -23,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           var ctx = document.getElementById("myChart").getContext('2d');
           var myChart = new Chart(ctx, {
-              type: 'line', //needs to be candlestick
+              type: 'candlestick', //needs to be candlestick
               data:
               {
                   labels: Object.keys(res.data.bpi),

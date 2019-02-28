@@ -50,5 +50,45 @@ h1{
 
 //----------------------------------------------------------------------------------------------------------------------
 
-//login.hbs
+//auth-login.hbs
+
+#login{
+  background-color: rgb(43, 68, 184);
+  min-height: 100vh;
+}
+
+.login_main {
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: 35%;
+  height: 300px;
+  margin-left: 30%;
+  position: absolute;
+  top: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 10px black;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//auth-signup.hbs
+
+#signup{
+  background-color: rgb(43, 68, 184);
+  min-height: 100vh;
+}
+
+.signup_main {
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: 35%;
+  height: 300px;
+  margin-left: 30%;
+  position: absolute;
+  top: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 10px black;
+}
 

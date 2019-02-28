@@ -1,4 +1,4 @@
-Dashboard
+
 {{!-- <h1>
   <div style="position: absolute; top: 10px;">
     <canvas id="forexChart" width="1000px" height="800px"></canvas>
@@ -9,16 +9,41 @@ Dashboard
 <h1> {{title}} 
     <h2 class="">Currency Pair</h2>
       <label for="currencyPair">
-      <input type="date" id="startDate" value="2019-01-01">
+        <h3>From: </h3>
+        <select class="from_symbol">
+          <option class="fromPair" type="AUD">AUD</option>
+          <option class="fromPair" type="CAD">CAD</option>
+          <option class="fromPair" type="EUR">EUR</option>
+          <option class="fromPair" type="GBP">GBP</option>
+          <option class="fromPair" type="JPY">JPY</option>
+          <option class="fromPair" type="NZD">NZD</option>
+          <option class="fromPair" type="USD">USD</option>
+        </select>
+        
+        <h3>To: </h3>
+        <select class="to_symbol">
+          <option class="toPair" type="AUD">AUD</option>
+          <option class="toPair" type="CAD">CAD</option>
+          <option class="toPair" type="EUR">EUR</option>
+          <option class="toPair" type="GBP">GBP</option>
+          <option class="toPair" type="JPY">JPY</option>
+          <option class="toPair" type="NZD">NZD</option>
+          <option class="toPair" type="USD">USD</option>
+        </select>
       </label>
-
-      <label for="start">To:
-      <input type="date" id="endDate" value="2019-02-18">
+      </br>
+      <label>
+        <select for="interval">
+          <option class="timeframe" type="1min">1min</option>
+          <option class="timeframe" type="5min">5min</option>
+          <option class="timeframe" type="15min">15min</option>
+          <option class="timeframe" type="30min">30min</option>
+          <option class="timeframe" type="60min">60min</option>
+        </select>
       </label>
-      <select>
-        <option class="USD" type="USD">USD</option>
-        <option class="EUR" type="EUR">EUR</option>
-      </select>
+      </br>
+      
+    
     <canvas id="myChart" width="300" height="150"></canvas>
     <a href="/private-page">Profile</a>
   </h1>
@@ -26,7 +51,7 @@ Dashboard
   <div>
     <p>Post an Idea!</p>
     <form action="/tradeIdea/add" method="post">
-      <input type="text" name="comment"></input>
+      <textarea type="text" id="comment" rows="5" ></textarea>
       <button type="submit">ADD</button>
     </form>
   </div>

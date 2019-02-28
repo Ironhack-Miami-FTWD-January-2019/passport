@@ -1,19 +1,26 @@
 <form action="/login" method="POST">
-  <div>
-    <h1>Login</h1>
-  </div>
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username" value="qwer">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="1234">
-  </div>
-  {{#if message}}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <div>
-    <input type="submit" value="Log In">
-  </div>
+  <section id="login">
+    <div class="login_main">
+      <h1>{{title}}</h1>
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="qwer">
+    
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password" value="1234">
+    </div>
+
+    {{#if message}}
+      <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+      <div>
+        <input type="submit" value="Log In">
+      </div>
+        <p class="account-message">Don't have an account?
+          <a href="/signup">SignUp</a>
+        </p>
+    </div>
+  </section>
 </form>

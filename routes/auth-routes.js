@@ -73,7 +73,7 @@ authRoutes.get("/private-page", isLoggedIn, (req, res) => {
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
 
 function isLoggedIn(req, res, next) {
