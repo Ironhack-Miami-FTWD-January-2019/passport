@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const baseURL = 'https://www.alphavantage.co/query'
   //Demo link from chart.js lab: https://api.coindesk.com/v1/bpi/historical/close.json
  
+  updateChart()
+
   function updateChart(e)
   {
     var ctx = document.getElementById("chart1").getContext("2d");
     ctx.canvas.width = 1000;
     ctx.canvas.height = 250;
 
-    let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${apikey}`;
-
-    var times = []
+    let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${process.env.apikey}`;
     
     axios.get(url)
     then(allData => {
@@ -63,13 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
     })
-  }
-      
-  document.getElementById('startDate').addEventListener("change", updateChart);
-  document.getElementById('endDate').addEventListener("change", updateChart);
-  //document.getElementsByTagName('select').addEventListener("change", updateChart);
-  
 
-  updateChart()
+    setInterval(updateChart, 5000);
+  }
 
 }, false);

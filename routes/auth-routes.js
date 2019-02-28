@@ -46,7 +46,7 @@ authRoutes.post("/signup", (req, res, next) => {
         res.render("auth-signup", { message: "Something went wrong" });
       } else {
         passport.authenticate('local')(req, res, function () {
-          res.redirect('/private-page');
+          res.redirect(`/private-page/:${User.username}`);
         })
       }
     });
@@ -61,13 +61,13 @@ authRoutes.get("/login", (req, res, next) => {
   res.render("auth-login", { "message": req.flash("error") });
 });
 authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/private-page",
+  successRedirect: `/private-page/:${User.username}`,
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-authRoutes.get("/private-page", isLoggedIn, (req, res) => {
+authRoutes.get("/private-page/:username", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render("private", { user: req.user });
 });
 
