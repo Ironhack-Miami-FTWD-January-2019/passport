@@ -11,7 +11,10 @@ const path         = require('path');
 const flash = require("connect-flash");
 const User = require('./models/user')
 const ensureLogin = require("connect-ensure-login");
-     
+  
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
 
 // app.js
 const session = require("express-session");

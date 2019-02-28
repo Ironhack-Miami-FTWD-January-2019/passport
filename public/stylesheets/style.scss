@@ -53,7 +53,8 @@ h1{
 //auth-login.hbs
 
 #login{
-  background-color: rgb(43, 68, 184);
+  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background-size: cover;
   min-height: 100vh;
 }
 
@@ -67,7 +68,7 @@ h1{
   position: absolute;
   top: 200px;
   border-radius: 5px;
-  box-shadow: 0px 0px 50px 10px black;
+  box-shadow: 0px 0px 50px 10px rgb(65, 65, 65);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -75,7 +76,7 @@ h1{
 //auth-signup.hbs
 
 #signup{
-  background-color: rgb(43, 68, 184);
+  background: linear-gradient(rgb(7, 60, 235), #ffffff);
   min-height: 100vh;
 }
 
@@ -89,6 +90,10 @@ h1{
   position: absolute;
   top: 200px;
   border-radius: 5px;
-  box-shadow: 0px 0px 50px 10px black;
+  box-shadow: 0px 0px 50px 10px rgb(65, 65, 65);
 }
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//private.hbs
 

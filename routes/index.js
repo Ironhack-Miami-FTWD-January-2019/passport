@@ -19,6 +19,13 @@ router.get('/dashboard', isLoggedIn, (req, res, next) => {
   })
 });
 
+router.get('/practice-chart', (req, res, next) => {
+ 
+    //console.log(commentsFromDatabase)
+    res.render('practice-chart.hbs', {});
+});
+
+
 router.post('/tradeIdea/add', isLoggedIn, (req, res, next) => {
   //console.log(req.body)
   let stuffSaid = req.body.comment;

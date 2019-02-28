@@ -35,7 +35,8 @@ h1 {
   color: white; }
 
 #login {
-  background-color: #2b44b8;
+  background: linear-gradient(#073ceb, #ffffff);
+  background-size: cover;
   min-height: 100vh; }
 
 .login_main {
@@ -48,10 +49,10 @@ h1 {
   position: absolute;
   top: 200px;
   border-radius: 5px;
-  box-shadow: 0px 0px 50px 10px black; }
+  box-shadow: 0px 0px 50px 10px #414141; }
 
 #signup {
-  background-color: #2b44b8;
+  background: linear-gradient(#073ceb, #ffffff);
   min-height: 100vh; }
 
 .signup_main {
@@ -64,6 +65,6 @@ h1 {
   position: absolute;
   top: 200px;
   border-radius: 5px;
-  box-shadow: 0px 0px 50px 10px black; }
+  box-shadow: 0px 0px 50px 10px #414141; }
 
 /*# sourceMappingURL=style.css.map */

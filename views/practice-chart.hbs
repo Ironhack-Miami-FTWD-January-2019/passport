@@ -1,25 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
+{{!-- <script src="../chart/moment.js" type="text/javascript"></script>
+<script src="../chart/Chart.js" type="text/javascript"></script>
+<script src="../chart/Chart.Financial.js" type="text/javascript"></script>
+<script src="../chart/utils.js" type="text/javascript"></script>
 
-  console.log('IronGenerator JS imported successfully!');
+<div class="content">
+  <h2>Candlestick</h2>
+  <div style="width:1000px">
+    <canvas id="chart1"></canvas>
+  </div>
+</div>
 
-  const baseURL = 'https://www.alphavantage.co/query'
-  //Demo link from chart.js lab: https://api.coindesk.com/v1/bpi/historical/close.json
- 
-  function updateChart(e)
-  {
-    var ctx = document.getElementById("chart1").getContext("2d");
-    ctx.canvas.width = 1000;
-    ctx.canvas.height = 250;
+<script>
 
-    let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${apikey}`;
+  //var data = JSON.parse('{{{json data}}}');
+  //console.log(data)
+  var ctx = document.getElementById("chart1").getContext("2d");
+  ctx.canvas.width = 1000;
+  ctx.canvas.height = 250;
 
-    var times = []
-    
-    axios.get(url)
-    then(allData => {
+  axios.get('https://www.alphavantage.co/query?function=FX_INTRADAY&from_symbol=EUR&to_symbol=USD&interval=15min&apikey=J32AHKQGTWBB4KXL')
+    .then(allData => {
       console.log(allData)
-        
-      var times = allData.data[`Time Series FX ${interval}`];
+      var times = allData.data["Time Series FX (15min)"];
 
       //var update = false;
 
@@ -63,13 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
     })
-  }
-      
-  document.getElementById('startDate').addEventListener("change", updateChart);
-  document.getElementById('endDate').addEventListener("change", updateChart);
-  //document.getElementsByTagName('select').addEventListener("change", updateChart);
-  
 
-  updateChart()
 
-}, false);
+  //var data = getRandomData('April 01 2017', 60);
+  //console.log(data)
+  // Candlestick
+
+
+
+
+
+</script> --}}
