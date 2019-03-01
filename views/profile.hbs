@@ -34,7 +34,7 @@
 
 
 
-  <div class="col-9">
+  <divclass="col-9">
 {{#if user}}
   <div class="center">
     <h4>{{user.username}}'s Profile Page</h4>
@@ -48,7 +48,7 @@
 
 {{!-- MAP ATTEMPTS --}}
 
-<div id="map"></div>
+<div id="map" class="map-fixed"></div>
 {{data}}
 <script>
 let pin = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
@@ -106,7 +106,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5
 </script>
 
 {{!-- {{hotspotsFromDb}} --}}
-  <div class='center'>
+  {{!-- <div class='center'>
     <a class="button" href='create'>Create New Hotspot</a>
-  </div>
+  </div> --}}
 </div>
