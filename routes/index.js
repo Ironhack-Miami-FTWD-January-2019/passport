@@ -129,7 +129,10 @@ router.get('/map', isLoggedIn, (req, res, next) => {
 router.post('/findName', isLoggedIn, (req, res, next) => {
   console.log(req.body, 1234567890)
   User.findOne({username:req.body.username}).then(user=>{
-    console.log('found this user',user)
+    if (!user) {
+      res.redirect("/profile");
+      return;
+    }
     Hotspot.find({userId:user._id}).then(hotspotsFromDb=>{
       console.log(user, hotspotsFromDb)
       res.render('find', {user:user, hotspots:hotspotsFromDb})
