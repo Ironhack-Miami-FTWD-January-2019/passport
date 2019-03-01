@@ -111,6 +111,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
 app.locals.title = 'PipChat';
+app.locals.name = User.username;
 
 // Routes
 const authRoutes = require("./routes/auth-routes");

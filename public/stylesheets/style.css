@@ -8,17 +8,24 @@ body {
   font-family: 'Paytone One', sans-serif; }
 
 h1 {
-  color: white; }
+  color: white;
+  text-decoration: underline; }
 
 .login {
   background-color: #2a11b6;
   border-radius: 10px;
-  width: 150px; }
+  width: 150px;
+  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 .signup {
   background-color: #2a11b6;
   border-radius: 10px;
-  width: 150px; }
+  width: 150px;
+  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 .main {
   background-color: white;
@@ -33,6 +40,9 @@ h1 {
 
 .main a {
   color: white; }
+
+.message {
+  text-decoration: underline; }
 
 #login {
   background: linear-gradient(#073ceb, #ffffff);
@@ -51,6 +61,12 @@ h1 {
   border-radius: 5px;
   box-shadow: 0px 0px 50px 10px #414141; }
 
+.loginButton {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px;
+  color: white; }
+
 #signup {
   background: linear-gradient(#073ceb, #ffffff);
   min-height: 100vh; }
@@ -66,5 +82,37 @@ h1 {
   top: 200px;
   border-radius: 5px;
   box-shadow: 0px 0px 50px 10px #414141; }
+
+.signupButton {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px;
+  color: white; }
+
+#dashboard {
+  background: linear-gradient(#073ceb, #ffffff);
+  background-size: cover;
+  min-height: 100vh; }
+
+.chart-background {
+  background-color: white;
+  border-radius: 10px; }
+
+.flexRow {
+  display: flex; }
+
+div.flewRow h3 {
+  padding-right: 10px; }
+
+.from-symbol {
+  height: 50px; }
+
+#editComment {
+  background: linear-gradient(#073ceb, #ffffff);
+  background-size: cover;
+  min-height: 100vh; }
+
+.form-control {
+  width: -50%; }
 
 /*# sourceMappingURL=style.css.map */

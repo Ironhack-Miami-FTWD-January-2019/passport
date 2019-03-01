@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let apikey = 'J32AHKQGTWBB4KXL'
 
     var ctx = document.getElementById("chart1").getContext("2d");
-    ctx.canvas.width = 1000;
+    ctx.canvas.width = 900;
     ctx.canvas.height = 250;
      //https://www.alphavantage.co/query?function=FX_INTRADAY&from_symbol=EUR&to_symbol=USD&interval=15min&apikey=J32AHKQGTWBB4KXL
     let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${apikey}`;

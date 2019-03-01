@@ -12,6 +12,7 @@ body {
 
 h1{
   color: white;
+  text-decoration: underline;
 }
 
 //buttons
@@ -19,6 +20,9 @@ h1{
   background-color: rgb(42, 17, 182);
   border-radius: 10px;
   width: 150px;
+  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   //margin-top: 50px;
 }
 
@@ -26,6 +30,9 @@ h1{
   background-color: rgb(42, 17, 182);
   border-radius: 10px;
   width: 150px;
+  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .main {
@@ -45,8 +52,9 @@ h1{
 }
 
 .message {
-  // margin-top: 50px;
+  text-decoration: underline;
 }
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -71,6 +79,13 @@ h1{
   box-shadow: 0px 0px 50px 10px rgb(65, 65, 65);
 }
 
+.loginButton{
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  color: white;
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 //auth-signup.hbs
@@ -93,7 +108,50 @@ h1{
   box-shadow: 0px 0px 50px 10px rgb(65, 65, 65);
 }
 
+.signupButton {
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  color: white;
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
-//private.hbs
+//dashboard.hbs
 
+#dashboard{
+  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.chart-background {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.flexRow {
+  display: flex;
+}
+
+div.flewRow h3 {
+  padding-right: 10px;
+}
+
+.from-symbol {
+  height: 50px;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//comment-edit.hbs
+
+#editComment{
+  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.form-control {
+  width: -50%;
+}

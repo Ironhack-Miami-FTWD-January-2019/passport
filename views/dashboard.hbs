@@ -3,77 +3,89 @@
 <script src="../chart/Chart.Financial.js" type="text/javascript"></script>
 <script src="../chart/utils.js" type="text/javascript"></script>
 
-<div class="content">
-  <h2>Candlestick</h2>
-</div>
+<section id="dashboard">
+  <div class="content container">
+    <h1> {{title}} 
+        <h2 class="Welcome">Welcome {{User.username}}! </h2>
+          <label for="currencyPair">
+            <div class="flexRow">
+              <h3>From: </h3>
+                <select class="from_symbol">
+                  <option class="fromPair" type="EUR">EUR</option>
+                  <option class="fromPair" type="AUD">AUD</option>
+                  <option class="fromPair" type="CAD">CAD</option>
+                  <option class="fromPair" type="GBP">GBP</option>
+                  <option class="fromPair" type="JPY">JPY</option>
+                  <option class="fromPair" type="NZD">NZD</option>
+                  <option class="fromPair" type="USD">USD</option>
+                </select>
+              
+            </div>
+            
+            <div class="flexRow">
+              <h3>To: </h3>
+              <select class="to_symbol">
+                <option class="toPair" type="USD">USD</option>
+                <option class="toPair" type="AUD">AUD</option>
+                <option class="toPair" type="CAD">CAD</option>
+                <option class="toPair" type="EUR">EUR</option>
+                <option class="toPair" type="GBP">GBP</option>
+                <option class="toPair" type="JPY">JPY</option>
+                <option class="toPair" type="NZD">NZD</option>
+              </select>
+            </div>
+          </label>
+          </br>
 
-<h1> {{title}} 
-    <h2 class="">Currency Pair</h2>
-      <label for="currencyPair">
-        <h3>From: </h3>
-        <select class="from_symbol">
-          <option class="fromPair" type="EUR">EUR</option>
-          <option class="fromPair" type="AUD">AUD</option>
-          <option class="fromPair" type="CAD">CAD</option>
-          <option class="fromPair" type="GBP">GBP</option>
-          <option class="fromPair" type="JPY">JPY</option>
-          <option class="fromPair" type="NZD">NZD</option>
-          <option class="fromPair" type="USD">USD</option>
-        </select>
-        
-        <h3>To: </h3>
-        <select class="to_symbol">
-          <option class="toPair" type="USD">USD</option>
-          <option class="toPair" type="AUD">AUD</option>
-          <option class="toPair" type="CAD">CAD</option>
-          <option class="toPair" type="EUR">EUR</option>
-          <option class="toPair" type="GBP">GBP</option>
-          <option class="toPair" type="JPY">JPY</option>
-          <option class="toPair" type="NZD">NZD</option>
-        </select>
-      </label>
-      </br>
-      <label>
-        <select class="interval">
-          <option class="timeframe" type="15min">15min</option>
-          <option class="timeframe" type="1min">1min</option>
-          <option class="timeframe" type="5min">5min</option>
-          <option class="timeframe" type="30min">30min</option>
-          <option class="timeframe" type="60min">60min</option>
-        </select>
-      </label>
-      </br>
+          <label>
+            <div class="flexRow">
+              <h3>Time Interval: </h3>
+              <select class="interval">
+                <option class="timeframe" type="15min">15min</option>
+                <option class="timeframe" type="1min">1min</option>
+                <option class="timeframe" type="5min">5min</option>
+                <option class="timeframe" type="30min">30min</option>
+                <option class="timeframe" type="60min">60min</option>
+              </select>
+            </div>
+          </label>
+          </br>
+          
+      <div class="chart-background">
+        <canvas id="chart1" width="300" height="150"></canvas>
+      </div>
+
+    </h1>
+
+      <div class="container"
+        <p>Post an Idea!</p>
+        <form action="/tradeIdea/add" method="post">
+          <textarea class="form-control" type="text" name="comment" rows="5" ></textarea>
+          <button type="submit">ADD</button>
+        </form>
       
-    <canvas id="chart1" width="300" height="150"></canvas>
-    <a href="/private-page">Profile</a>
-  </h1>
 
-  <div>
-    <p>Post an Idea!</p>
-    <form action="/tradeIdea/add" method="post">
-      <textarea type="text" name="comment" rows="5" ></textarea>
-      <button type="submit">ADD</button>
-    </form>
+      <h2>Ideas!</h2>
+        {{#each commentstoHBS}}
+        <div class="tradeIdea-item-delete">
+          <hr>
+          <p>{{comment}}</p>
+          <p><b>posted by:</b><i>{{userId.username}}</i></p>
+          {{#if yours}}
+          <a href="/edit/{{_id}}">
+            <button>Edit</button>
+          </a>
+          {{/if}}
+          
+          {{#if yours}}
+          <form action="delete/{{_id}}" method="post">
+            <button>Delete</button>
+          </form>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+
+      <script src="/javascripts/financial-chart.js"></script>
   </div>
-
-  <h2>Ideas!</h2>
-    {{#each commentstoHBS}}
-    <div class="tradeIdea-item-delete">
-      <hr>
-      <p>{{comment}}</p>
-      <p><b>posted by:</b><i>{{userId.username}}</i></p>
-      {{#if yours}}
-      <a href="/edit/{{_id}}">
-        <button>Edit</button>
-      </a>
-      {{/if}}
-      
-      {{#if yours}}
-      <form action="delete/{{_id}}" method="post">
-        <button>Delete</button>
-      </form>
-      {{/if}}
-    </div>
-    {{/each}}
-
-  <script src="/javascripts/financial-chart.js"></script>
+</section>

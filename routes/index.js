@@ -31,6 +31,8 @@ router.post('/tradeIdea/add', isLoggedIn, (req, res, next) => {
   let stuffSaid = req.body.comment;
   let comment = new Comment({ comment:stuffSaid, userId:req.user._id})
   comment.save(()=>{ //wait until done saving before redirect
+    console.log("Test ++++++++++")
+    console.log(req.body.comment)
     res.redirect('../dashboard')
   });
 });
