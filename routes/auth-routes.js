@@ -37,7 +37,7 @@ authRoutes.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username: req.user._id,
+      username,
       password: hashPass
     });
 

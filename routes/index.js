@@ -15,7 +15,7 @@ router.get('/dashboard', isLoggedIn, (req, res, next) => {
       }
     })
     console.log(commentsFromDatabase,"hippo");
-    res.render('dashboard.hbs', {commentstoHBS:commentsFromDatabase});
+    res.render('dashboard.hbs', {commentstoHBS:commentsFromDatabase, user:req.user});
   })
 });
 
