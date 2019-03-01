@@ -1,72 +1,89 @@
-<h1>ALL HOTSPOTS</h1>
+<div class="row">
 
-<div id="map"></div>
-{{data}}
-<script>
-  function initMap(){
-    // Map Options
-    var options = {
-      zoom:16,
-      center: {lat:25.7661932, lng: -80.19618059999999}
-    }
-    // New Map
-    var map = new 
-    google.maps.Map(document.getElementById('map'), options);
+  <div class="col-3">
+    <div class="flex-center  scroll">
 
-    //listen for click on map
-    google.maps.event.addListener(map, 'click',
-    function(event){
-      addMarker({coords:event.latLng});
-    })
+    <h1>ALL HOTSPOTS</h1>
 
-    //var currentUser = JSON.parse('{{{json user}}}');
-    let markers = JSON.parse('{{{json hotspots}}}')
-    console.log(markers)
+    <div class="scroll">
+      {{#each hotspots}}
+        {{!-- {{#if this.first}} --}}
+          {{#unless this.coolspot}}
+          <div class="card flex-center">
+            <div class="card-body">
+              <h4>NAME: {{this.name}}</h4> <br>
+              Location: {{this.location}}<br>
+              Type: {{this.kind}}<br>
+              Genre: {{this.genre}}<br>
+            </div>
+          </div>
+          {{/unless}}
+        {{!-- {{/if}} --}}
+      {{/each}}
+      </div>
 
-    for(var i=0; i<markers.length; i++){
-      addMarker(markers[i]);
-    }
+    </div>
+  </div>
 
-    //Add Marker function
-      function addMarker(props){
-        console.log(props)
-        var marker = new google.maps.Marker({
-        position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
-        map:map,
+  <div class="col-9">
+    <div class="center">
+      <h3>ALL HOTSPOTS</h3>
+    </div>
+
+  <div id="map"></div>
+  {{data}}
+  <script>
+    function initMap(){
+      // Map Options
+      var options = {
+        zoom:17,
+        center: {lat:25.7661932, lng: -80.19618059999999}
+      }
+      // New Map
+      var map = new 
+      google.maps.Map(document.getElementById('map'), options);
+
+      //listen for click on map
+      google.maps.event.addListener(map, 'click',
+      function(event){
+        addMarker({coords:event.latLng});
+      })
+
+      //var currentUser = JSON.parse('{{{json user}}}');
+      let markers = JSON.parse('{{{json hotspots}}}')
+      console.log(markers)
+
+      for(var i=0; i<markers.length; i++){
+        addMarker(markers[i]);
+      }
+
+      //Add Marker function
+        function addMarker(props){
+          console.log(props)
+          var marker = new google.maps.Marker({
+          position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
+          map:map,
+        });
+        //check content
+        if(props.name){
+          var infoWindow = new google.maps.InfoWindow({
+        content: props.name
       });
-      //check content
-      if(props.name){
-        var infoWindow = new google.maps.InfoWindow({
-      content: props.name
-    });
-    marker.addListener('click', function(){
-      infoWindow.open(map, marker);
-    });
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+        }
       }
     }
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
-</script>
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
+  </script>
 
 
 
-{{#each hotspots}}
-  {{!-- {{#if this.first}} --}}
-    {{#unless this.coolspot}}
-      <div>
-        <h3>NAME: {{this.name}}</h3> <br>
-        <h4>Location: {{this.location}}</h4> <br>
-        <h4>Type: {{this.kind}}</h4> <br>
-        <h4>Genre: {{this.genre}}</h4> <br>
-      </div>
-    {{/unless}}
-  {{!-- {{/if}} --}}
-{{/each}}
 
-
-  {{!-- <h1>You haven't checked in to any HotSpots!</h1>
-  <a href="/create">Create one here!</a> --}}
+  </div>
+</div>
 
 
