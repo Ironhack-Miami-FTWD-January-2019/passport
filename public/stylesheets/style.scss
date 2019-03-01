@@ -75,7 +75,24 @@ a {
   border-bottom: 5px;
 }
 
-.fill-box{
-  border-style: solid black 2px;
-  radius: 15% 
+.create-box{
+  font-size: 21px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 25vw;
+  margin-left: 37vw;
+  position: absolute;
+  top: 20%;
+  color: white;
+  border-radius: 15%;
+}
+
+.create-bg{
+  background-color: beige;
+  height: 92vh;
+}
+
+.button-padding{
+  padding: 5px;
+  margin: 0;
 }
