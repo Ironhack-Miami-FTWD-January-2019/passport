@@ -34,7 +34,7 @@
       </label>
       </br>
       <label>
-        <select for="interval">
+        <select class="interval">
           <option class="timeframe" type="15min">15min</option>
           <option class="timeframe" type="1min">1min</option>
           <option class="timeframe" type="5min">5min</option>
@@ -51,7 +51,7 @@
   <div>
     <p>Post an Idea!</p>
     <form action="/tradeIdea/add" method="post">
-      <textarea type="text" id="comment" rows="5" ></textarea>
+      <textarea type="text" name="comment" rows="5" ></textarea>
       <button type="submit">ADD</button>
     </form>
   </div>
@@ -59,6 +59,7 @@
   <h2>Ideas!</h2>
     {{#each commentstoHBS}}
     <div class="tradeIdea-item-delete">
+      <hr>
       <p>{{comment}}</p>
       <p><b>posted by:</b><i>{{userId.username}}</i></p>
       {{#if yours}}

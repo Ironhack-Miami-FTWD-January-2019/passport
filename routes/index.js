@@ -7,27 +7,27 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/dashboard', isLoggedIn, (req, res, next) => {
-  Comment.find().populate('userId').then(commentsFromDatabase=>{
+  Comment.find().sort({created_at: -1}).populate('userId').then(commentsFromDatabase=>{
     commentsFromDatabase.forEach(comment=>{
       //console.log('121',comment.userId._id, req.user._id)
       if(String(comment.userId._id) === String(req.user._id)){
         comment.yours = true; 
       }
     })
-    //console.log(commentsFromDatabase)
+    console.log(commentsFromDatabase,"hippo");
     res.render('dashboard.hbs', {commentstoHBS:commentsFromDatabase});
   })
 });
 
-router.get('/practice-chart', (req, res, next) => {
+// router.get('/practice-chart', (req, res, next) => {
  
-    //console.log(commentsFromDatabase)
-    res.render('practice-chart.hbs', {});
-});
+//     //console.log(commentsFromDatabase)
+//     res.render('practice-chart.hbs', {});
+// });
 
 
 router.post('/tradeIdea/add', isLoggedIn, (req, res, next) => {
-  //console.log(req.body)
+  console.log(req.body)
   let stuffSaid = req.body.comment;
   let comment = new Comment({ comment:stuffSaid, userId:req.user._id})
   comment.save(()=>{ //wait until done saving before redirect

@@ -7,20 +7,34 @@ document.addEventListener('DOMContentLoaded', () => {
  
   updateChart()
 
+  $('.from_symbol, .to_symbol, .interval').on('change', ()=>{
+    updateChart()
+  })
+
+  
   function updateChart(e)
   {
+    console.log('update')
+
+    // let from_symbol = document.getElementById("from_symbol").value;
+    // let endDate = document.getElementById("endDate").value;
+    // let currency = document.getElementsByTagName('select').value;
+    // let url = `${baseURL}?start=${startDate}&end=${endDate}`;
+    let from_symbol = $('.from_symbol').val() || 'EUR'
+    let to_symbol = $('.to_symbol').val() || 'USD'    
+    let interval = $('.interval').val() || '15min'
+    let apikey = 'J32AHKQGTWBB4KXL'
+
     var ctx = document.getElementById("chart1").getContext("2d");
     ctx.canvas.width = 1000;
     ctx.canvas.height = 250;
-
-    let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${process.env.apikey}`;
-    
-    axios.get(url)
-    then(allData => {
+     //https://www.alphavantage.co/query?function=FX_INTRADAY&from_symbol=EUR&to_symbol=USD&interval=15min&apikey=J32AHKQGTWBB4KXL
+    let url = `${baseURL}?function=FX_INTRADAY&from_symbol=${from_symbol}&to_symbol=${to_symbol}&interval=${interval}&apikey=${apikey}`;
+    console.log(url);
+    axios.get(url).then(allData => {
       console.log(allData)
         
-      var times = allData.data[`Time Series FX ${interval}`];
-
+      var times = allData.data[`Time Series FX (${interval})`];
       //var update = false;
 
       //if (stockChart.series.count() > 0)
@@ -64,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })
 
-    setInterval(updateChart, 5000);
+    //setInterval(updateChart, 5000);
   }
 
 }, false);
