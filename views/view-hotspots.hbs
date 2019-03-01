@@ -36,7 +36,7 @@
     function initMap(){
       // Map Options
       var options = {
-        zoom:17,
+        zoom:16,
         center: {lat:25.7661932, lng: -80.19618059999999}
       }
       // New Map
@@ -60,6 +60,9 @@
       //Add Marker function
         function addMarker(props){
           console.log(props)
+          if(props.coolspot == true){
+            return
+          }
           var marker = new google.maps.Marker({
           position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
           map:map,

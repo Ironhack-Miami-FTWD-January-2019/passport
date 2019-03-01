@@ -51,6 +51,8 @@
 <div id="map"></div>
 {{data}}
 <script>
+let pin = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
+
   function initMap(){
     // Map Options
     var options = {
@@ -78,7 +80,12 @@
     //Add Marker function
       function addMarker(props){
         console.log(props)
+        if(props.coolspot == true){
+            pin = "http://maps.google.com/mapfiles/ms/micons/blue-dot.png"
+          }
+      
         var marker = new google.maps.Marker({
+        icon: pin,
         position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
         map:map,
       });
