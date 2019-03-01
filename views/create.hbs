@@ -1,24 +1,29 @@
+<div>
+  <div class="center-box">
 
-<form id="form" action="/createNewHotSpot" method="POST">
-    <label for="hName">HotSpot Name</label><br>
-    <input type="text" name="name" placeholder="HS Name"><br>
+    <form id="form" action="/createNewHotSpot" method="POST">
+        <label for="hName">HotSpot Name</label><br>
+        <input type="text" name="name" placeholder="HS Name"><br>
 
-    <label for="hLocation">Location</label><br>
-    <input type="text" name="location" placeholder="e.g. 123 Fake St."><br>
+        <label for="hLocation">Location</label><br>
+        <input type="text" name="location" placeholder="e.g. 123 Fake St."><br>
 
-    <label for="hType">Type of place</label><br>
-    <input type="text" name="kind" placeholder="restaurant, bar, ect."><br>
+        <label for="hType">Type of place</label><br>
+        <input type="text" name="kind" placeholder="restaurant, bar, ect."><br>
 
-    <label for="hSubtype">Genre</label><br>
-    <input type="text" name="genre" placeholder="What 'genre?' "><br>
+        <label for="hSubtype">Genre</label><br>
+        <input type="text" name="genre" placeholder="What 'genre?' "><br>
 
-    <input type="checkbox" name="coolspot" value="true">CoolSpot<br>
+        <input type="checkbox" name="coolspot" value="true">CoolSpot<br>
 
-    <button type="submit">Create HotSpot</button>
-  </form>
+        <button type="submit">Create HotSpot</button>
+      </form>
 
-{{!-- <a href="/homepage">Go Back</a> --}}
+    {{!-- <a href="/homepage">Go Back</a> --}}
 
-{{#if errorMessage}}
-  <div class="error-message">{{ errorMessage }}</div>
-{{/if}}
+    {{#if errorMessage}}
+      <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
+
+  </div>
+</div>
