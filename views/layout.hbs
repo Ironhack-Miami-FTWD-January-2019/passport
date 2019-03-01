@@ -11,11 +11,13 @@
       #map{
         height:500px;
         width:100%;
+  
       }
     </style>
 </head>
 <body>
-  <nav>
+
+  <nav class="navbar navbar-dark bg-primary">
     <a href="/map">Map</a>
     <a href="/">Home</a>
     <a href="/profile">Profile</a>
@@ -30,15 +32,15 @@
     
   
   <form  id="findName" action="/findName" method="POST">
-    <label for="username">Search for username</label>
+    <label class="red" for="username">Search for username</label>
     <input type="text" placeholder="search..." name="username">
     <button type="submit">Go!</button>
   </form>
 </form>
   </nav>
-
+<body class="bg-color">
   {{{body}}}
- 
+</body>
   {{!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU"></script> --}}
   
   <script src="/javascripts/script.js"></script>

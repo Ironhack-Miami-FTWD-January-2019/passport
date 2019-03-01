@@ -1,8 +1,39 @@
 body {
-  padding: 50px;
+  padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: whitesmoke; }
+
+.bg-primary {
+  background-color: black !important; }
+
+.red {
+  color: red; }
+
+.button {
+  color: #3100BA; }
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.scroll {
+  overflow: scroll; }
+
+.hot {
+  background-color: red; }
+
+.cold {
+  background-color: blue; }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #6d4444;
+  border-color: #0062cc; }
+
+.center {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

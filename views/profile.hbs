@@ -1,14 +1,48 @@
+<div class="row">
 
- <br>
+<div class="col-3">
+  <div class="flex-center  scroll">
+<h1>YOUR HOTSPOTS:</h1>
+
+  <div class="scroll">
+    {{#each hotspots}}
+      <div class="card flex-center">
+        <div class="card-body">
+          <h4>NAME: {{this.name}}</h4>
+          <h4>LOCATION: {{location}}</h4>
+          <h4>TYPE: {{kind}}</h4>
+          <h4>GENRE: {{genre}}</h4>
+          <h4># OF VISITS: {{visits}}</h4>
+        </div>
+      </div>
+  
+      <form class="flex-center" id="recheck" action="/recheck/{{_id}}" method="POST">
+        <button class="btn btn-primary hot" type="submit">Check in again!</button>
+      </form>
+      
+      <br>
+      
+      <form class="flex-center" id="delete" action="/delete/{{_id}}" method="POST">
+        <button class="btn btn-primary cold" type="submit">Delete HotSpot</button>
+      </form>
+
+    {{/each}}
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="col-9">
 {{#if user}}
-  <div>
+  <div class="center">
     <h4>{{user.username}}'s Profile Page</h4>
   </div>
 {{/if}}
 
 <br>
 
-<a href='create'>Create New Hotspot</a>
+
 
 
 {{!-- MAP ATTEMPTS --}}
@@ -64,26 +98,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5
 </script>
 
 {{!-- {{hotspotsFromDb}} --}}
-
-<h1>YOUR HOTSPOTS:</h1>
-
-{{#each hotspots}}
-  <div>
-    <h2>NAME: {{this.name}}</h2> <br>
-    <h2>LOCATION: {{location}}</h2> <br>
-    <h2>TYPE: {{kind}}</h2> <br>
-    <h2>GENRE: {{genre}}</h2> <br>
-    <h2># OF VISITS: {{visits}}</h2> <br>
+  <div class='center'>
+    <a class="button" href='create'>Create New Hotspot</a>
   </div>
-  
-  <form id="recheck" action="/recheck/{{_id}}" method="POST">
-    <button type="submit">Check in again!</button>
-  </form>
-  
-  <br>
-  
-  <form id="delete" action="/delete/{{_id}}" method="POST">
-    <button type="submit">Delete HotSpot</button>
-  </form>
-
-{{/each}}
+</div>
