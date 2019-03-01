@@ -61,7 +61,7 @@ h1{
 //auth-login.hbs
 
 #login{
-  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background: linear-gradient(rgb(31, 80, 241), #99accf);
   background-size: cover;
   min-height: 100vh;
 }
@@ -91,7 +91,7 @@ h1{
 //auth-signup.hbs
 
 #signup{
-  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background: linear-gradient(rgb(31, 80, 241), #99accf);
   min-height: 100vh;
 }
 
@@ -120,9 +120,10 @@ h1{
 //dashboard.hbs
 
 #dashboard{
-  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background: linear-gradient(rgb(31, 80, 241), #99accf);
   background-size: cover;
   min-height: 100vh;
+  color: white;
 }
 
 .chart-background {
@@ -134,12 +135,43 @@ h1{
   display: flex;
 }
 
-div.flewRow h3 {
-  padding-right: 10px;
+.flexRow select {
+  margin: 0 20px 0 10px;
 }
 
-.from-symbol {
-  height: 50px;
+.postIdea {
+  text-align: center;
+  font-size: 24pt;
+  text-decoration: underline;
+}
+
+.submitCommentButton {
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  color: white;
+}
+
+.editButton {
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  color: white;
+}
+
+.deleteButton {
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  color: white;
+}
+
+.container {
+  padding-bottom: 50px;
+}
+
+.ideas {
+  text-decoration: underline;
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -147,11 +179,35 @@ div.flewRow h3 {
 //comment-edit.hbs
 
 #editComment{
-  background: linear-gradient(rgb(7, 60, 235), #ffffff);
+  background: linear-gradient(rgb(31, 80, 241), #99accf);
   background-size: cover;
   min-height: 100vh;
 }
 
 .form-control {
   width: -50%;
+}
+
+.editBox {
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  position: absolute;
+  width: 40%;
+  height: 30%;
+  padding-left: 150px;
+  padding-top: 40px;
+  top: 250px;
+  left: 30%;
+  border-radius: 10px;
+}
+
+.edit-idea {
+  font-size: 24pt;
+}
+
+.edit-submit-button {
+  background-color: rgb(42, 17, 182);
+  border-radius: 10px;
+  width: 150px;
+  color: white;
 }

@@ -45,7 +45,7 @@ h1 {
   text-decoration: underline; }
 
 #login {
-  background: linear-gradient(#073ceb, #ffffff);
+  background: linear-gradient(#1f50f1, #99accf);
   background-size: cover;
   min-height: 100vh; }
 
@@ -68,7 +68,7 @@ h1 {
   color: white; }
 
 #signup {
-  background: linear-gradient(#073ceb, #ffffff);
+  background: linear-gradient(#1f50f1, #99accf);
   min-height: 100vh; }
 
 .signup_main {
@@ -90,9 +90,10 @@ h1 {
   color: white; }
 
 #dashboard {
-  background: linear-gradient(#073ceb, #ffffff);
+  background: linear-gradient(#1f50f1, #99accf);
   background-size: cover;
-  min-height: 100vh; }
+  min-height: 100vh;
+  color: white; }
 
 .chart-background {
   background-color: white;
@@ -101,18 +102,65 @@ h1 {
 .flexRow {
   display: flex; }
 
-div.flewRow h3 {
-  padding-right: 10px; }
+.flexRow select {
+  margin: 0 20px 0 10px; }
 
-.from-symbol {
-  height: 50px; }
+.postIdea {
+  text-align: center;
+  font-size: 24pt;
+  text-decoration: underline; }
+
+.submitCommentButton {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px;
+  color: white; }
+
+.editButton {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px;
+  color: white; }
+
+.deleteButton {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px;
+  color: white; }
+
+.container {
+  padding-bottom: 50px; }
+
+.ideas {
+  text-decoration: underline; }
 
 #editComment {
-  background: linear-gradient(#073ceb, #ffffff);
+  background: linear-gradient(#1f50f1, #99accf);
   background-size: cover;
   min-height: 100vh; }
 
 .form-control {
   width: -50%; }
+
+.editBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: absolute;
+  width: 40%;
+  height: 30%;
+  padding-left: 150px;
+  padding-top: 40px;
+  top: 250px;
+  left: 30%;
+  border-radius: 10px; }
+
+.edit-idea {
+  font-size: 24pt; }
+
+.edit-submit-button {
+  background-color: #2a11b6;
+  border-radius: 10px;
+  width: 150px;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
