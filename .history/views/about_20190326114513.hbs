@@ -7,8 +7,8 @@
       {{#if user}}
         <h3><a class="button" href="/profile">Back to HotSpot</a></h3><br>
       {{/if}}
-      {{#unless user}}
+      {{#else}}
         <h3><a class="button" href="/login">Login</a> or <a  class="button" href="/signup">Create an account</a></h3>
-      {{/unless}}
+      {{/else}}
   </div>
 </div>
