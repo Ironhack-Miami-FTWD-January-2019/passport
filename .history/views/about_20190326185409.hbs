@@ -1,0 +1,16 @@
+{{!-- THIS IS THE ABOUT PAGE --}}
+
+<div class="pic">
+  <div class="center-box">
+    <h1>How HotSpot Works:</h1>
+    <p>The purpose of this app is to create a locational scrapbook to share with others. More will come. Just enter the name, the what the location is, and what type of location it is (i.e. the 'genre;) then it will be logged on your personal map. Alternatively, you can log the address.<br>
+    (Note: for the sake demo, the login and search inputs are already filled to show functionality.)
+    </p>
+      {{#if user}}
+        <h3><a class="button" href="/profile">Back to HotSpot</a></h3><br>
+      {{/if}}
+      {{#unless user}}
+        <h3><a class="button" href="/login">Login</a> or <a  class="button" href="/signup">Create an account</a></h3>
+      {{/unless}}
+  </div>
+</div>
