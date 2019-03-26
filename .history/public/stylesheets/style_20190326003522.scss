@@ -1,0 +1,114 @@
+body {
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: whitesmoke;
+}
+
+.bg-primary{
+  background-color: black!important;
+}
+
+// .bg-color{
+  
+// }
+
+.red{
+  color:red;
+}
+
+.button{
+  color:#0038DF;
+}
+
+.flex-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scroll{
+  overflow-y:auto;
+}
+
+.hot{
+  background-color: red;
+}
+
+.cold{
+  background-color: blue;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: rgb(109, 68, 68);
+  border-color: #0062cc;
+}
+
+.center-box{
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 30vw;
+  margin-left: 35vw;
+  position: absolute;
+  top: 20%;
+  color: white;
+}
+
+.center{
+  text-align: center;
+}
+
+.white{
+  color: white;
+  padding-top: 4px;
+}
+
+.pic{
+  background-image: url("http://hdlatestwallpaper.com/wp-content/uploads/2018/07/Santa-Clarita-city-HD-wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  height: 92vh;
+  border-bottom: 5px;
+}
+
+.create-box{
+  font-size: 21px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 25vw;
+  margin-left: 37vw;
+  position: absolute;
+  top: 20%;
+  color: white;
+  border-radius: 15%;
+}
+
+.create-bg{
+  background-color: beige;
+  height: 92vh;
+}
+
+.button-padding{
+  padding: 5px;
+  margin: 0;
+}
+
+#map{
+  position:fixed !important;
+}
+
+.map-fixed{
+  position:fixed;
+}
+
+.click-here{
+  color: lightcoral !important;
+}
+
+.gradient{
+  
+}
