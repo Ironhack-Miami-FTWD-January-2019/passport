@@ -143,10 +143,7 @@ router.post('/findName', isLoggedIn, (req, res, next) => {
   })
 })
 
-//ABOUT SECTION
-router.get('/about', (req,res,next) => {
-  res.render('about')
-})
+
 
 
 module.exports = router;
