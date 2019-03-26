@@ -30,13 +30,13 @@
       <a href="/signup">Signup</a>
     {{/unless}}
     
-
+  {{#if user}}
   <form  id="findName" action="/findName" method="POST">
     <label class="red" for="username">Search for username</label>
-    <input type="text" value="Alex"placeholder="search..." name="username">
+    <input type="text" placeholder="search..." name="username">
     <button type="submit">Go!</button>
   </form>
-
+  {{/if}}
 </form>
   </nav>
 <body class="bg-color">

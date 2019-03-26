@@ -1,60 +1,41 @@
-{{!-- THIS IS FOR VIEWING THE ACTIVE USER'S PROFILE PAGE --}}
-
 <div class="row">
 
 <div class="col-3">
   <div class="flex-center  scroll">
-    
-<h1>YOUR HOTSPOTS:</h1>
 
-  <div class="scroll">
-    {{#each hotspots}}
-      <div class="card flex-center">
-        <div class="card-body">
-          <h4>NAME: {{this.name}}</h4><br>
-          LOCATION: {{location}}<br>
-          TYPE: {{kind}}<br>
-          GENRE: {{genre}}<br>
-          # OF VISITS: {{visits}}<br>
-        </div>
-      </div>
-  
-      <form class="flex-center" id="recheck" action="/recheck/{{_id}}" method="POST">
-        <button class="btn btn-primary hot" type="submit">Check in again!</button>
-      </form>
-      
-      <br>
-      
-      <form class="flex-center" id="delete" action="/delete/{{_id}}" method="POST">
-        <button class="btn btn-primary cold" type="submit">Delete HotSpot</button>
-      </form>
+    <h1>{{user}}'s' HOTSPOTS</h1>
 
-    {{/each}}
+    <div class="scroll">
+      {{#each hotspotsToHBS}}
+          <div class="card flex-center">
+            <div class="card-body">
+              <h3>NAME: {{this.name}}</h3> <br>
+              <h4>Location: {{this.location}}</h4> <br>
+              <h4>Type: {{this.kind}}</h4> <br>
+              <h4>Genre: {{this.genre}}</h4> <br>
+              <h2># OF VISITS: {{this.visits}}</h2> <br>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}} 
     </div>
   </div>
 </div>
 
 
 
-  <divclass="col-9">
-{{#if user}}
+<div class="col-9">
   <div class="center">
-    <h4>Your Profile Page</h4>
+    <h3>{{user}}'s' HOTSPOTS</h3>
   </div>
-{{/if}}
 
-<br>
+  <br>
 
+{{!-- MAP --}}
 
-
-
-{{!-- MAP ATTEMPTS --}}
-
-<div id="map" class="map-fixed"></div>
+<div id="map"></div>
 {{data}}
 <script>
-let pin = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
-
   function initMap(){
     // Map Options
     var options = {
@@ -82,12 +63,7 @@ let pin = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
     //Add Marker function
       function addMarker(props){
         console.log(props)
-        if(props.coolspot == true){
-            pin = "http://maps.google.com/mapfiles/ms/micons/blue-dot.png"
-          }
-      
         var marker = new google.maps.Marker({
-        icon: pin,
         position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
         map:map,
       });
@@ -107,8 +83,12 @@ let pin = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
 </script>
 
-{{!-- {{hotspotsFromDb}} --}}
-  {{!-- <div class='center'>
-    <a class="button" href='create'>Create New Hotspot</a>
-  </div> --}}
+
+
+
+
+<a class="button" href="/profile">Go Back</a>
+
+
+  </div>
 </div>

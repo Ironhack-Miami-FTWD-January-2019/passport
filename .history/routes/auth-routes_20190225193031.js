@@ -15,8 +15,6 @@ authRoutes.get("/signup", (req, res, next) => {
   res.render("auth-signup");
 });
 
-// CREATING NEW USER
-
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -56,7 +54,7 @@ authRoutes.post("/signup", (req, res, next) => {
   })
 });
 
-//LOGIN
+
 
 authRoutes.get("/login", (req, res, next) => {
   res.render("auth-login", { "message": req.flash("error") });
@@ -68,20 +66,15 @@ authRoutes.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-
-
 authRoutes.get("/private-page", isLoggedIn, (req, res) => {
   res.render("private", { user: req.user });
 });
-
-//LOGOUT
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/login");
 });
 
-//MAKE SURE USER IS LOGGED IN
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())

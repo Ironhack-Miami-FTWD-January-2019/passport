@@ -20,7 +20,7 @@ a {
   justify-content: center; }
 
 .scroll {
-  overflow: scroll; }
+  overflow-y: auto; }
 
 .hot {
   background-color: red; }

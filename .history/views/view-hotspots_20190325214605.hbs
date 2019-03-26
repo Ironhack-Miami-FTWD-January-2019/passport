@@ -1,38 +1,40 @@
-THIS IS FOR SEARCHING FOR OTHER USERS
+{{!-- THIS PAGE IS FOR --}}
 
 <div class="row">
-  
+
   <div class="col-3">
     <div class="flex-center  scroll">
 
-      <h1>{{user.username}}'s HotSpots</h1>
+    <h1>ALL HOTSPOTS</h1>
 
-      <div class="scroll">
-        {{#each hotspots}}
+    <div class="scroll">
+      {{#each hotspots}}
+        {{!-- {{#if this.first}} --}}
+          {{#unless this.coolspot}}
           <div class="card flex-center">
             <div class="card-body">
-              <h4>NAME: {{this.name}}</h4><br>
-              LOCATION: {{this.location}}<br>
-              TYPE: {{this.kind}}<br>
-              GENRE: {{this.genre}}<br>
+              <h4>NAME: {{this.name}}</h4> <br>
+              Location: {{this.location}}<br>
+              Type: {{this.kind}}<br>
+              Genre: {{this.genre}}<br>
             </div>
           </div>
-        {{/each}}
+          {{/unless}}
+        {{!-- {{/if}} --}}
+      {{/each}}
       </div>
+
     </div>
   </div>
 
-{{!-- MAP --}}
-
-<div class="col-9">
-  <div class="center">
-    <h4>{{user.username}}'s Profile Page</h4>
-  </div>
+  <div class="col-9">
+    <div class="center">
+      <h3>ALL HOTSPOTS</h3>
+    </div>
 
   <div id="map"></div>
   {{data}}
   <script>
-  let pin = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
     function initMap(){
       // Map Options
       var options = {
@@ -60,11 +62,10 @@ THIS IS FOR SEARCHING FOR OTHER USERS
       //Add Marker function
         function addMarker(props){
           console.log(props)
-           if(props.coolspot == true){
-            pin = "http://maps.google.com/mapfiles/ms/micons/blue-dot.png"
+          if(props.coolspot == true){
+            return
           }
           var marker = new google.maps.Marker({
-          icon: pin,
           position: {lat:Number(props.lat), lng:Number(props.lon)},//props.coords,
           map:map,
         });
@@ -84,7 +85,10 @@ THIS IS FOR SEARCHING FOR OTHER USERS
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDHQg3R9w2fSbdKrYv1vrKAE5sdOJ2uLU&callback=initMap">
   </script>
 
-  <a href="/profile">Back to your Profile</a>
+
+
 
   </div>
-</div>  
+</div>
+
+
