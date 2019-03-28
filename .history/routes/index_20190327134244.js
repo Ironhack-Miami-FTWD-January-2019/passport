@@ -126,10 +126,10 @@ router.get('/map', isLoggedIn, (req, res, next) => {
 
 
 //SEARCH FOR USER
-router.post('/findName', isLoggedIn, (req, res, next) => {
+router.post('/findName', (req, res, next) => {
   User.findOne({username:req.body.username}).then(user=>{
     if (!user) {
-      res.redirect("/profile");
+      // res.redirect("/profile");
       return;
     }
     Hotspot.find({userId:user._id}).then(hotspotsFromDb=>{
