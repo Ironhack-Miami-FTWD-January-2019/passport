@@ -39,12 +39,11 @@ router.get('/create', isLoggedIn, (req, res, next)=>{
 //CREATE NEW HOTSPOT
 router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   let saveStuff = req.body;
-  const protoName = req.body.name;
   const username = req.body.username;
-  req.body.name = protoName.replace("'","")
-  console.log(req.body.name)
   saveStuff.userId = req.user._id
   geocoder.geocode(saveStuff.location, function(err, response) {
+    console.log(res);
+  
     User.findOne({ "username": username })
     .then(user => {
       // if (user !== null) {

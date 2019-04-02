@@ -45,6 +45,8 @@ router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   console.log(req.body.name)
   saveStuff.userId = req.user._id
   geocoder.geocode(saveStuff.location, function(err, response) {
+    if (username.includes("'") )
+  
     User.findOne({ "username": username })
     .then(user => {
       // if (user !== null) {
