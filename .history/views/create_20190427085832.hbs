@@ -8,7 +8,7 @@
 
       <form id="form" action="/createNewHotSpot" method="POST">
           <label for="hName">HotSpot Name</label><br>
-          <input type="text" name="name" placeholder="HS Name"><br>
+          <input type="text" name="name" placeholder="HS Name" value="z"><br>
 
           <label for="hLocation">Location</label><br>
           <input type="text" name="location" placeholder="e.g. 123 Fake St."><br>
@@ -28,8 +28,6 @@
           </div>
 
         </form>
-
-      {{!-- <a href="/homepage">Go Back</a> --}}
 
       {{#if errorMessage}}
         <div class="error-message">{{ errorMessage }}</div>

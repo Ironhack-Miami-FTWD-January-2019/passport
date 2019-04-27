@@ -8,16 +8,16 @@
 
       <form id="form" action="/createNewHotSpot" method="POST">
           <label for="hName">HotSpot Name</label><br>
-          <input type="text" name="name" placeholder="HS Name" value="La Sandwicherie"><br>
+          <input type="text" name="name" placeholder="HS Name" value=""><br>
 
           <label for="hLocation">Location</label><br>
-          <input type="text" name="location" placeholder="e.g. 123 Fake St." value="34 SW 8th St, Miami, FL 33130, USA"><br>
+          <input type="text" name="location" placeholder="e.g. 123 Fake St." value=""><br>
 
           <label for="hType">Type of place</label><br>
-          <input type="text" name="kind" placeholder="restaurant, bar, ect." value="Restaurant"><br>
+          <input type="text" name="kind" placeholder="restaurant, bar, ect." value=""><br>
 
           <label for="hSubtype">Genre</label><br>
-          <input type="text" name="genre" placeholder="What 'genre?' " value="Sandwiches"><br>
+          <input type="text" name="genre" placeholder="What 'genre?' " value=""><br>
 
           <div class="button">
             <input type="checkbox" name="coolspot" value="true">CoolSpot<br>
@@ -28,7 +28,7 @@
           </div>
 
         </form>
-      <p>Note: the boxes have already been filled for demo purposes</p>
+      <h3>Note: the boxes have already been filled for demo purposes</h3>
       {{#if errorMessage}}
         <div class="error-message">{{ errorMessage }}</div>
       {{/if}}
