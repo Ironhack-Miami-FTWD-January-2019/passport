@@ -133,6 +133,6 @@ app.use('/', index);
 var http = require('http');
 setInterval(function() {
   http.get('http://<your app name>.herokuapp.com');
-}, 600000); // every 10 minutes (300000)
+}, 300000); // every 5 minutes (300000)
 
 module.exports = app;

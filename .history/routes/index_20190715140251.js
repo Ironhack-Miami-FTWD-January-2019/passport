@@ -6,7 +6,7 @@ const User = require("../models/user");
 const Hotspot = require("../models/hotspot");
 var HS = [];
 var NodeGeocoder = require('node-geocoder');
- 
+
 var options = {
   provider: 'google',
  
@@ -40,11 +40,11 @@ router.get('/create', isLoggedIn, (req, res, next)=>{
 router.post('/createNewHotSpot', isLoggedIn, (req, res, next)=>{
   let saveStuff = req.body;
   const protoName = req.body.name;
-  const name = protoName.replace("'","")
+  const username = req.body.username;
+  req.body.name = protoName.replace("'","")
+  console.log(req.body.name)
   saveStuff.userId = req.user._id
   geocoder.geocode(saveStuff.location, function(err, response) {
-    if (username.includes("'") )
-  
     User.findOne({ "username": username })
     .then(user => {
       // if (user !== null) {

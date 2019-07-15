@@ -6,7 +6,7 @@ const User = require("../models/user");
 const Hotspot = require("../models/hotspot");
 var HS = [];
 var NodeGeocoder = require('node-geocoder');
- 
+
 var options = {
   provider: 'google',
  
