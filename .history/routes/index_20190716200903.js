@@ -64,7 +64,6 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
   });
 });
 
-//VIEW HOTSPOTS
 router.get('/view-hotspots', (req, res, next) => {
   Hotspot.find().then(hotspotsFromDb => {
     res.render('view-hotspots', { hotspots: hotspotsFromDb, user: req.user });
